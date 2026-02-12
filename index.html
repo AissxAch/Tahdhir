@@ -2,266 +2,23 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=5, user-scalable=yes" />
   <title>تحذير — قريبًا | Tahdhir</title>
   <meta name="description" content="منصة تحذير — عمل مجتمعي لمنع الاحتيال المالي. الموقع قيد التطوير." />
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <meta name="apple-mobile-web-app-title" content="تحذير" />
   <link rel="manifest" href="/site.webmanifest" />
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --green:#0b7a3e;
-      --green-2:#2fa05a;
-      --gold:#c79a1b;
-      --navy:#0b2b4a;
-      --red:#e10600;
-      --muted:#5e6f7d;
-      --bg:#ffffff;
-      --light-gray:#f8fafc;
-    }
-    *{box-sizing:border-box; margin:0; padding:0;}
-    html,body{height:100%; scroll-behavior:smooth;}
-    body{
-      margin:0;
-      font-family:'Cairo', system-ui, Arial, sans-serif;
-      background:var(--bg);
-      color:var(--navy);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-      padding-top: 90px;
-    }
-
-    /* Header */
-    .topbar{
-      width:100%;
-      border-bottom:1px solid rgba(11,42,74,0.06);
-      background:rgba(255,255,255,0.98);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
-    .topbar.scrolled{
-      background:rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(11,42,74,0.08);
-      border-bottom:1px solid rgba(11,42,74,0.1);
-    }
-    #volunteerModal input,
-    #volunteerModal select,
-    #volunteerModal textarea {
-      width: 100% !important;
-      margin: 8px 0;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      font-family: 'Cairo', sans-serif;
-      font-size: 15px;
-      box-sizing: border-box;
-    }
-
-    #volunteerModal textarea {
-      width: 100%;
-      resize: vertical;
-      min-height: 120px;
-    }
-    .container{max-width:1060px;margin:0 auto;padding:0 24px;}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:12px 0;
-    }
-    .brand{display:flex;align-items:center;gap:12px;}
-    .brand img{height:52px; width:auto; display:block;}
-    .brand .title{font-weight:700;color:var(--navy);font-size:18px;}
-    .brand .note{font-size:13px; color:var(--muted);}
-    .navlinks{display:flex;gap:18px;align-items:center;}
-    .navlinks a{
-      color:var(--navy);
-      text-decoration:none;
-      font-weight:600;
-      padding:8px 12px;
-      border-radius:8px;
-      transition: all 0.2s;
-    }
-    .navlinks a:hover{background:rgba(11,122,62,0.08);}
-    .cta{
-      background:var(--green);
-      color:#fff !important;
-      padding:8px 20px;
-      border-radius:30px;
-      font-weight:700;
-      font-size:14px;
-      box-shadow:0 6px 18px rgba(11,122,62,0.15);
-    }
-    .cta:hover{background:#0a682e;}
-
-    /* Mobile menu */
-    .menu-btn{display:none;background:none;border:0;font-size:28px;color:var(--navy);cursor:pointer;}
-    @media(max-width:820px){
-      .navlinks{display:none;}
-      .menu-btn{display:block;}
-    }
-
-    /* Hero */
-    .hero{
-      padding:40px 0 32px;
-      text-align:center;
-    }
-    .hero .logo{
-      display:inline-block;
-      margin-bottom:18px;
-    }
-    .hero .logo img{
-      max-height:240px;
-      width:auto;
-    }
-    .hero h1{
-      margin:6px 0 12px;
-      font-size:48px;
-      font-weight:900;
-      color:var(--green);
-      letter-spacing:-0.5px;
-    }
-    .hero p{
-      max-width:800px;
-      margin:0 auto;
-      color:var(--muted);
-      font-size:18px;
-    }
-    .coming{
-      display:inline-block;
-      margin-top:24px;
-      padding:12px 28px;
-      border-radius:50px;
-      background:linear-gradient(135deg, var(--gold), #e5b534);
-      color:#0a1a1f;
-      font-weight:800;
-      font-size:20px;
-      border:1px solid rgba(255,255,200,0.3);
-      box-shadow:0 8px 20px rgba(199,154,27,0.2);
-    }
-
-    /* Sections */
-    section{padding:48px 0; border-bottom:1px solid rgba(11,42,74,0.04);}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start;}
-    @media(max-width:920px){.grid{grid-template-columns:1fr;}}
-    
-    .card{
-      background:#fff;
-      padding:28px;
-      border-radius:20px;
-      box-shadow:0 8px 24px rgba(11,42,74,0.04);
-      border:1px solid rgba(11,42,74,0.03);
-      margin-bottom:24px;
-      transition: transform 0.2s;
-    }
-    .card:hover{transform:translateY(-2px);}
-    
-    h2{margin:0 0 12px; font-size:24px; color:var(--navy); font-weight:700;}
-    .muted{color:var(--muted); font-size:16px; margin-bottom:16px;}
-
-    ul.features{padding-right:24px; margin:16px 0 0;}
-    ul.features li{margin:12px 0; color:var(--navy);}
-
-    /* aside */
-    .aside .box{margin-bottom:24px; padding:24px; border-radius:20px; background:#fff; border:1px solid rgba(11,42,74,0.03);}
-    
-    .btn{
-      display:inline-block;
-      background:var(--green);
-      color:#fff;
-      padding:12px 24px;
-      border-radius:40px;
-      text-decoration:none;
-      font-weight:700;
-      font-size:16px;
-      border:none;
-      cursor:pointer;
-      transition: all 0.2s;
-    }
-    .btn:hover{background:#0a682e; transform:scale(1.02);}
-
-    /* Tags */
-    .tag{
-      display:inline-block;
-      background:rgba(11,122,62,0.1);
-      color:var(--green);
-      padding:6px 14px;
-      border-radius:50px;
-      font-weight:700;
-      font-size:14px;
-      margin-bottom:16px;
-    }
-
-    /* Forms */
-    input, select, textarea{
-      font-family:'Cairo', sans-serif;
-      background:var(--light-gray);
-      border:1px solid #edf0f5;
-      border-radius:12px;
-      padding:12px 16px;
-      font-size:15px;
-      transition: all 0.2s;
-    }
-    input:focus, select:focus, textarea:focus{
-      outline:none;
-      border-color:var(--green);
-      background:#fff;
-    }
-
-    /* Modal */
-    #volunteerModal{
-      display:none; 
-      position:fixed; 
-      top:50%; 
-      left:50%; 
-      transform:translate(-50%,-50%); 
-      background:white; 
-      padding:32px; 
-      border-radius:24px; 
-      box-shadow:0 25px 50px rgba(0,0,0,0.2); 
-      z-index:1001; 
-      max-width:550px; 
-      width:90%;
-      direction:rtl;
-    }
-    #volunteerOverlay{
-      display:none; 
-      position:fixed; 
-      top:0; 
-      left:0; 
-      width:100%; 
-      height:100%; 
-      background:rgba(0,0,0,0.6); 
-      z-index:1000;
-      backdrop-filter:blur(3px);
-    }
-
-    /* Footer */
-    footer{
-      padding:32px 0; 
-      text-align:center; 
-      color:var(--muted); 
-      font-size:14px;
-      border-top:1px solid rgba(11,42,74,0.04);
-    }
-
-    /* Utilities */
-    :target{scroll-margin-top:100px;}
-    .note{color:var(--muted); font-size:14px; margin-top:8px;}
-  </style>
+  
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -273,8 +30,8 @@
           <img src="logo.png" alt="شعار تحذير" />
         </a>
         <div>
-          <div class="title">تحذير — Tahdhir</div>
-          <div class="note">منصة وطنية لمكافحة الاحتيال المالي</div>
+          <div class="title">تحذير</div>
+          <div class="note">Tahdhir</div>
         </div>
       </div>
 
@@ -295,15 +52,15 @@
     <!-- HERO -->
     <section id="home" class="hero container">
       <div class="logo">
-        <img src="logo.png" alt="شعار تحذير" style="max-height:250px;">
+        <img src="logo.png" alt="شعار تحذير">
       </div>
       <h1>تحذير</h1>
-      <p class="sub-en" style="font-size:22px; color:var(--navy); margin-bottom:8px; font-weight:300;">Tahdhir</p>
+      <p style="font-size:20px; color:var(--navy); margin-bottom:8px; font-weight:300;">Tahdhir</p>
       <p>
         منصة جزائرية مجتمعية، غير ربحية، للإبلاغ والتحقق من أرقام الهاتف 
-        وحسابات CCP (RIP) قبل تحويل الأموال. نسخة تجريبية قريباً.
+        وحسابات CCP (RIP) قبل تحويل الأموال. النسخة التجريبية قريباً.
       </p>
-      <div class="coming">🔔 قريباً — تحت التطوير</div>
+      <div class="coming">🔔 قيد التطوير — قريباً</div>
     </section>
 
     <!-- Main Grid -->
@@ -331,9 +88,9 @@
             <div class="tag">⚖️ الامتثال القانوني</div>
             <h2>التسجيل والحماية القانونية</h2>
             <ul class="features">
-              <li><strong>ANPDP:</strong> تم إعداد ملف التصريح فانتظار قبوله.</li>
-              <li><strong>ONDA:</strong> تم إيداع مصنف لحماية الملكية الفكرية للمشروع.</li>
-              <li><strong>غير ربحي:</strong> المشروع تطوعي 100%، بدون أي إيرادات.</li>
+              <li><strong>ANPDP:</strong> تم إعداد ملف التصريح بانتظار القبول.</li>
+              <li><strong>ONDA:</strong> تم إيداع مصنف لحماية الملكية الفكرية.</li>
+              <li><strong>غير ربحي:</strong> المشروع تطوعي 100%، بدون إيرادات.</li>
             </ul>
           </article>
 
@@ -343,21 +100,10 @@
             <h2>كيف سيعمل النظام؟</h2>
             <ul class="features">
               <li><strong>1.</strong> مستخدم مسجل يرسل بلاغاً (اسم، هاتف، RIP، أدلة).</li>
-              <li><strong>2.</strong> النظام يتحقق من تكرار رقم الهاتف/RIP ويدمج تلقائياً.</li>
+              <li><strong>2.</strong> النظام يتحقق من التكرار ويدمج تلقائياً.</li>
               <li><strong>3.</strong> مشرف متطوع يراجع الأدلة ويوافق أو يرفض.</li>
-              <li><strong>4.</strong> البلاغ المقبول يُنشر ويُحتسب في سمعة المُبلغ.</li>
-              <li><strong>5.</strong> يمكن للمستخدمين متابعة ملف محتال وتلقي تنبيهات.</li>
-            </ul>
-          </article>
-
-          <!-- ميزات قادمة -->
-          <article class="card">
-            <div class="tag">🚀 قريباً</div>
-            <h2>ميزات تحذير</h2>
-            <ul class="features">
-              <li>دمج ذكي للملفات المكررة.</li>
-              <li>نظام الطعن للمتهمين خطأً.</li>
-              <li>لوحة تحكم متقدمة للمشرفين.</li>
+              <li><strong>4.</strong> البلاغ المقبول يُنشر وتُحتسب سمعة المُبلغ.</li>
+              <li><strong>5.</strong> متابعة ملف محتال وتلقي تنبيهات.</li>
             </ul>
           </article>
         </div>
@@ -377,7 +123,7 @@
           <div class="box">
             <h3 style="font-size:22px; margin-bottom:12px;">📧 تواصل</h3>
             <p class="muted">للاستفسارات والمراسلات الرسمية:</p>
-            <p style="direction:ltr; text-align:left; background:#f5f7fa; padding:12px; border-radius:12px; font-family:monospace;">
+            <p style="direction:ltr; text-align:left; background:#f5f7fa; padding:12px; border-radius:12px; font-family:monospace; word-break:break-all;">
               achouri.aissa@outlook.com
             </p>
           </div>
@@ -394,11 +140,11 @@
           اضغط على الزر لفتح بريدك مباشرة — سنرد في أقرب وقت.
         </p>
         <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <a href="mailto:achouri.aissa@outlook.com?subject=استفسار%20بخصوص%20منصة%20تحذير" class="btn" style="background:var(--navy);">📩 فتح تطبيق البريد</a>
-          <button onclick="window.location.href='mailto:achouri.aissa@outlook.com?subject=طلب%20تطوع%20-%20تحذير&body=الاسم:%0Aالرسالة:';" class="btn" style="background:var(--green);">🙋 طلب تطوع</button>
+          <a href="mailto:achouri.aissa@outlook.com?subject=استفسار%20بخصوص%20منصة%20تحذير" class="btn" style="background:var(--navy); min-width:160px;">📩 استفسار</a>
+          <button onclick="window.location.href='mailto:achouri.aissa@outlook.com?subject=طلب%20تطوع%20-%20تحذير&body=الاسم:%0Aالرسالة:';" class="btn" style="background:var(--green); min-width:160px;">🙋 طلب تطوع</button>
         </div>
         <p class="note" style="text-align:center; margin-top:24px;">
-          * سيتم فتح عميل البريد الافتراضي على جهازك.
+          * سيتم فتح تطبيق البريد الافتراضي.
         </p>
       </div>
     </section>
@@ -409,7 +155,7 @@
     <div class="container">
       <p style="font-size:18px; font-weight:700; color:var(--navy); margin-bottom:8px;">تحذير — Tahdhir</p>
       <p style="margin-bottom:12px;">مشروع مجتمعي غير ربحي، قيد التطوير. جميع الحقوق محفوظة © 2026</p>
-      <p style="font-size:13px; opacity:0.7;">tahdhir.aissxdev.tech</p>
+      <p style="font-size:13px; opacity:0.7; word-break:break-all;">tahdhir.aissxdev.tech</p>
     </div>
   </footer>
 
@@ -423,114 +169,13 @@
     <input type="email" id="vEmail" placeholder="البريد الإلكتروني" />
     <textarea id="vMessage" rows="4" placeholder="لماذا تريد التطوع؟ أي خبرات لديك؟"></textarea>
     
-    <div style="display:flex; gap:12px; margin-top:20px;">
-      <button onclick="submitVolunteer()" class="btn" style="flex:2;">إرسال الطلب</button>
-      <button onclick="closeVolunteerForm()" style="flex:1; background:#f0f2f5; color:var(--navy); border:none; border-radius:40px; font-weight:600; cursor:pointer;">إلغاء</button>
+    <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+      <button onclick="submitVolunteer()" class="btn" style="flex:2; min-width:200px;">إرسال الطلب</button>
+      <button onclick="closeVolunteerForm()" style="flex:1; background:#f0f2f5; color:var(--navy); border:none; border-radius:40px; font-weight:600; cursor:pointer; padding:12px 20px; min-width:100px;">إلغاء</button>
     </div>
   </div>
 
   <!-- JavaScript -->
-  <script>
-    // ========== MOBILE MENU ==========
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isVisible = navLinks.style.display === 'flex';
-        
-        if (!isVisible) {
-          navLinks.style.display = 'flex';
-          navLinks.style.flexDirection = 'column';
-          navLinks.style.position = 'absolute';
-          navLinks.style.top = '76px';
-          navLinks.style.right = '20px';
-          navLinks.style.left = '20px';
-          navLinks.style.background = 'white';
-          navLinks.style.padding = '20px';
-          navLinks.style.borderRadius = '16px';
-          navLinks.style.boxShadow = '0 12px 30px rgba(0,0,0,0.1)';
-          navLinks.style.border = '1px solid #edf0f5';
-          navLinks.style.zIndex = '1000';
-          
-          const links = navLinks.querySelectorAll('a');
-          links.forEach(link => link.style.width = '100%');
-        } else {
-          navLinks.style.display = '';
-        }
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!menuBtn.contains(event.target) && !navLinks.contains(event.target)) {
-          navLinks.style.display = '';
-        }
-      });
-    }
-
-    // ========== SCROLL EFFECT ==========
-    const topbar = document.querySelector('.topbar');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        topbar.classList.add('scrolled');
-      } else {
-        topbar.classList.remove('scrolled');
-      }
-    });
-
-    // ========== VOLUNTEER MODAL ==========
-    function openVolunteerForm() {
-      document.getElementById('volunteerModal').style.display = 'block';
-      document.getElementById('volunteerOverlay').style.display = 'block';
-    }
-
-    function closeVolunteerForm() {
-      document.getElementById('volunteerModal').style.display = 'none';
-      document.getElementById('volunteerOverlay').style.display = 'none';
-    }
-
-    function submitVolunteer() {
-      const name = document.getElementById('vName').value.trim();
-      const email = document.getElementById('vEmail').value.trim();
-      const message = document.getElementById('vMessage').value.trim();
-
-      if (!name || !email) {
-        alert('الرجاء ملء جميع الحقول المطلوبة (الاسم، البريد).');
-        return;
-      }
-
-      if (!email.includes('@') || !email.includes('.')) {
-        alert('الرجاء إدخال بريد إلكتروني صحيح.');
-        return;
-      }
-
-      // إنشاء رابط البريد - تم إزالة field نهائياً
-      const subject = encodeURIComponent('طلب تطوع - منصة تحذير');
-      const body = encodeURIComponent(
-        'الاسم: ' + name + '\n' +
-        'البريد: ' + email + '\n\n' +
-        'الرسالة:\n' + message
-      );
-      
-      window.location.href = 'mailto:achouri.aissa@outlook.com?subject=' + subject + '&body=' + body;
-      
-      // رسالة تأكيد
-      alert('تم فتح بريدك لإرسال الطلب. شكراً لاهتمامك!');
-      closeVolunteerForm();
-      
-      // تفريغ الحقول
-      document.getElementById('vName').value = '';
-      document.getElementById('vEmail').value = '';
-      document.getElementById('vMessage').value = '';
-    }
-
-    // ========== CLOSE MODAL WITH ESC ==========
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeVolunteerForm();
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
