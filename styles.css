@@ -28,7 +28,6 @@ body{
     body { padding-top: 70px; }
     .container { padding: 0 16px; }
     h1 { font-size: 36px !important; }
-    .hero .logo img { max-height: 160px !important; }
     .coming { font-size: 16px !important; padding: 10px 20px !important; }
     .card { padding: 20px !important; }
     .grid { gap: 20px !important; }
