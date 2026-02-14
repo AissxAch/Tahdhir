@@ -52,58 +52,78 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// ========== TOAST FUNCTION ==========
+function showToast(message, duration = 3000) {
+    const toast = document.getElementById('toastMessage');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, duration);
+}
+
 // ========== VOLUNTEER MODAL ==========
 function openVolunteerForm() {
     document.getElementById('volunteerModal').style.display = 'block';
     document.getElementById('volunteerOverlay').style.display = 'block';
-    // منع التمرير خلف النافذة
     document.body.style.overflow = 'hidden';
 }
 
 function closeVolunteerForm() {
     document.getElementById('volunteerModal').style.display = 'none';
     document.getElementById('volunteerOverlay').style.display = 'none';
-    // إعادة التمرير
     document.body.style.overflow = 'auto';
 }
 
 function submitVolunteer() {
     const name = document.getElementById('vName').value.trim();
     const email = document.getElementById('vEmail').value.trim();
+    const role = document.getElementById('vRole').value;
+    const experience = document.getElementById('vExperience').value.trim();
+    const contactMethod = document.getElementById('vContactMethod').value;
     const message = document.getElementById('vMessage').value.trim();
 
     if (!name || !email) {
-    alert('❌ الرجاء ملء جميع الحقول المطلوبة (الاسم، البريد).');
-    return;
+        showToast('❌ الرجاء ملء جميع الحقول المطلوبة (الاسم، البريد).');
+        return;
     }
 
     if (!email.includes('@') || !email.includes('.')) {
-    alert('❌ الرجاء إدخال بريد إلكتروني صحيح.');
-    return;
+        showToast('❌ الرجاء إدخال بريد إلكتروني صحيح.');
+        return;
     }
 
-    // إنشاء رابط البريد
+    // بناء نص الرسالة
+    let body = 'الاسم: ' + name + '\n';
+    body += 'البريد: ' + email + '\n';
+    if (role) body += 'الدور المطلوب: ' + role + '\n';
+    if (experience) body += 'الخبرات: ' + experience + '\n';
+    if (contactMethod) body += 'وسيلة التواصل المفضلة: ' + contactMethod + '\n';
+    if (message) body += 'رسالة إضافية: ' + message + '\n';
+
     const subject = encodeURIComponent('طلب تطوع - منصة تحذير');
-    const body = encodeURIComponent(
-    'الاسم: ' + name + '\n' +
-    'البريد: ' + email + '\n\n' +
-    'الرسالة:\n' + message
-    );
-    
-    window.location.href = 'mailto:achouri.aissa@outlook.com?subject=' + subject + '&body=' + body;
-    
-    alert('✅ تم فتح بريدك لإرسال الطلب. شكراً لاهتمامك!');
+    const bodyEncoded = encodeURIComponent(body);
+
+    // فتح عميل البريد
+    window.location.href = 'mailto:achouri.aissa@outlook.com?subject=' + subject + '&body=' + bodyEncoded;
+
+    // عرض رسالة تأكيد
+    showToast('✅ تم فتح بريدك لإرسال الطلب. شكراً لاهتمامك!');
+
     closeVolunteerForm();
-    
-    // تفريغ الحقول
+
+    // مسح الحقول
     document.getElementById('vName').value = '';
     document.getElementById('vEmail').value = '';
+    document.getElementById('vRole').value = '';
+    document.getElementById('vExperience').value = '';
+    document.getElementById('vContactMethod').value = '';
     document.getElementById('vMessage').value = '';
 }
 
 // ========== CLOSE MODAL WITH ESC ==========
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-    closeVolunteerForm();
+        closeVolunteerForm();
     }
 });

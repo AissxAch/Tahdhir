@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=5, user-scalable=yes" />
   <title>تحذير — قريبًا | Tahdhir</title>
-  <meta name="description" content="منصة تحذير — عمل مجتمعي لمنع الاحتيال المالي. الموقع قيد التطوير." />
+  <meta name="description" content="منصة تحذير — عمل مجتمعي لمنع الاحتيال المالي. الموقع قيد التطوير. التحقق من أرقام الهاتف، حسابات CCP، RIP، الإبلاغ عن المحتالين، منصة جزائرية غير ربحية" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo.png">
@@ -16,8 +16,8 @@
   <link rel="manifest" href="/site.webmanifest" />
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -52,9 +52,10 @@
     <!-- HERO -->
     <section id="home" class="hero container">
       <div class="logo">
-        <img src="assets/logo.png" alt="شعار تحذير">
+        <img src="assets/logonotitle.png" alt="شعار تحذير">
       </div>
-      <br>
+      <h1>منصة تحذير: حماية مجتمعية من الاحتيال المالي في الجزائر</h1>
+      <p>
         منصة جزائرية مجتمعية، غير ربحية، للإبلاغ والتحقق من أرقام الهاتف 
         وحسابات CCP (RIP) قبل تحويل الأموال. النسخة التجريبية قريباً.
       </p>
@@ -129,6 +130,36 @@
       </div>
     </section>
 
+    <!-- قسم الأسئلة الشائعة -->
+    <section class="container" id="faq">
+      <div class="card">
+        <div class="tag">❓ الأسئلة الشائعة</div>
+        <h2>أهم الاستفسارات حول المنصة</h2>
+        <div class="faq-list">
+          <details>
+            <summary>كيف يمكنني الإبلاغ عن شخص؟</summary>
+            <p>بعد إطلاق المنصة، ستتاح استمارة بسيطة تملأ فيها بيانات المبلَّغ عنه (الاسم، رقم الهاتف، RIP إن وجد، روابط حسابات التواصل) مع إرفاق الأدلة (صور، PDF). سيتم مراجعة البلاغ من قبل مشرفين متطوعين قبل النشر.</p>
+          </details>
+          <details>
+            <summary>هل بياناتي آمنة؟</summary>
+            <p>نعم، نحن نلتزم بالقانون 18-07 المتعلق بحماية المعطيات ذات الطابع الشخصي. جميع البيانات مشفرة، ولا يتم نشر أي معلومات يمكن أن تؤدي إلى تحديد هوية الأشخاص. نحن لا نشارك بياناتك مع أي طرف ثالث.</p>
+          </details>
+          <details>
+            <summary>متى ستنطلق المنصة رسمياً؟</summary>
+            <p>المنصة حاليًا قيد التطوير، ومن المتوقع إطلاق النسخة التجريبية (MVP) خلال الأشهر القادمة. يمكنك متابعة حسابنا أو الاشتراك في القائمة البريدية ليصلك إشعار عند الانطلاق.</p>
+          </details>
+          <details>
+            <summary>كيف يمكنني التطوع في المنصة؟</summary>
+            <p>يمكنك التقديم عبر زر "استمارة التطوع" الموجود في الصفحة. سنتواصل معك عبر البريد الإلكتروني لمناقشة دورك المحتمل (مشرف، مترجم، مطور، مسوق).</p>
+          </details>
+          <details>
+            <summary>هل المنصة مجانية بالكامل؟</summary>
+            <p>نعم، المنصة مجانية وغير ربحية 100%. جميع الخدمات متاحة بدون أي رسوم، ولا توجد إعلانات. نحن نعتمد على التطوع والدعم المجتمعي.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- قسم التواصل -->
     <section id="contact" class="container">
       <div class="card" style="max-width:800px; margin:0 auto;">
@@ -151,6 +182,12 @@
   <!-- Footer -->
   <footer>
     <div class="container">
+      <div style="display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; flex-wrap: wrap;">
+        <a href="mailto:achouri.aissa@outlook.com" aria-label="البريد الإلكتروني" style="color: var(--navy); font-size: 24px; transition: color 0.3s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--navy)'"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/tahdhir/" aria-label="فيسبوك" style="color: var(--navy); font-size: 24px; transition: color 0.3s;" onmouseover="this.style.color='#1877f2'" onmouseout="this.style.color='var(--navy)'"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="تويتر" style="color: var(--navy); font-size: 24px; transition: color 0.3s;" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='var(--navy)'"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="تليغرام" style="color: var(--navy); font-size: 24px; transition: color 0.3s;" onmouseover="this.style.color='#0088cc'" onmouseout="this.style.color='var(--navy)'"><i class="fab fa-telegram"></i></a>
+      </div>
       <p style="font-size:18px; font-weight:700; color:var(--navy); margin-bottom:8px;">تحذير — Tahdhir</p>
       <p style="margin-bottom:12px;">مشروع مجتمعي غير ربحي، قيد التطوير. جميع الحقوق محفوظة © 2026</p>
       <p style="font-size:13px; opacity:0.7; word-break:break-all;">tahdhir.aissxdev.tech</p>
@@ -165,7 +202,26 @@
     
     <input type="text" id="vName" placeholder="الاسم الكامل" />
     <input type="email" id="vEmail" placeholder="البريد الإلكتروني" />
-    <textarea id="vMessage" rows="4" placeholder="لماذا تريد التطوع؟ أي خبرات لديك؟"></textarea>
+    
+    <select id="vRole">
+      <option value="">اختر الدور الذي ترغب به (اختياري)</option>
+      <option value="مشرف">مشرف (مراجعة البلاغات)</option>
+      <option value="مترجم">مترجم</option>
+      <option value="مطور">مطور ويب / تقني</option>
+      <option value="مسوق">مسوق / مساعد في النشر</option>
+      <option value="أخرى">أخرى (حدد في الرسالة)</option>
+    </select>
+    
+    <textarea id="vExperience" rows="2" placeholder="خبراتك السابقة أو المهارات (اختياري)"></textarea>
+    
+    <select id="vContactMethod">
+      <option value="">الوسيلة المفضلة للتواصل (اختياري)</option>
+      <option value="بريد إلكتروني">البريد الإلكتروني</option>
+      <option value="واتساب">واتساب</option>
+      <option value="تليغرام">تليغرام</option>
+    </select>
+    
+    <textarea id="vMessage" rows="3" placeholder="لماذا تريد التطوع؟ أي تعليق إضافي؟ (اختياري)"></textarea>
     
     <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
       <button onclick="submitVolunteer()" class="btn" style="flex:2; min-width:200px;">إرسال الطلب</button>
@@ -173,7 +229,10 @@
     </div>
   </div>
 
+  <!-- Toast للإشعارات -->
+  <div id="toastMessage" class="toast"></div>
+
   <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

@@ -9,18 +9,26 @@
     --light-gray:#f8fafc;
 }
 
-*{box-sizing:border-box; margin:0; padding:0;}
-html,body{height:100%; scroll-behavior:smooth;}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html, body{
+    height:100%;
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
     font-family:'Cairo', system-ui, Arial, sans-serif;
-    background:var(--bg);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf0 100%);
     color:var(--navy);
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     line-height:1.6;
-    padding-top: 80px; /* تصغير للموبايل */
+    padding-top: 80px; /* space for fixed header */
 }
 
 /* ========== تحسينات الجوال الشاملة ========== */
@@ -42,7 +50,7 @@ body{
     .brand .note { font-size: 11px !important; }
 }
 
-/* Header */
+/* ========== Header ========== */
 .topbar{
     width:100%;
     border-bottom:1px solid rgba(11,42,74,0.06);
@@ -50,7 +58,6 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 999;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -74,17 +81,17 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:8px 0; /* تصغير للموبايل */
+    padding:8px 0;
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:8px; /* تصغير للموبايل */
+    gap:8px;
 }
 
 .brand img{
-    height:48px; /* تصغير للموبايل */
+    height:48px;
     width:auto;
     display:block;
 }
@@ -121,7 +128,9 @@ body{
     font-size:15px;
 }
 
-.navlinks a:hover{background:rgba(11,122,62,0.08);}
+.navlinks a:hover{
+    background:rgba(11,122,62,0.08);
+}
 
 .cta{
     background:var(--green);
@@ -132,9 +141,11 @@ body{
     font-size:14px;
     box-shadow:0 6px 18px rgba(11,122,62,0.15);
 }
-.cta:hover{background:#0a682e;}
+.cta:hover{
+    background:#0a682e;
+}
 
-/* Mobile menu */
+/* ========== Mobile menu ========== */
 .menu-btn{
     display:none;
     background:none;
@@ -147,15 +158,21 @@ body{
 
 @media(max-width:820px){
     .navlinks{
-    display:none;
-    width: calc(100% - 32px);
+        display:none;
+        width: calc(100% - 32px);
     }
-    .menu-btn{display:block;}
-    .brand .title { font-size: 16px; }
-    .brand .note { font-size: 11px; }
+    .menu-btn{
+        display:block;
+    }
+    .brand .title {
+        font-size: 16px;
+    }
+    .brand .note {
+        font-size: 11px;
+    }
 }
 
-/* Hero */
+/* ========== Hero ========== */
 .hero{
     padding:30px 0 24px;
     text-align:center;
@@ -166,6 +183,8 @@ body{
 }
 .hero .logo img{
     width:auto;
+    max-width:100%;
+    height:auto;
 }
 .hero h1{
     margin:6px 0 8px;
@@ -199,8 +218,11 @@ body{
     box-shadow:0 8px 20px rgba(199,154,27,0.2);
 }
 
-/* Sections */
-section{padding:40px 0; border-bottom:1px solid rgba(11,42,74,0.04);}
+/* ========== Sections ========== */
+section{
+    padding:40px 0;
+    border-bottom:1px solid rgba(11,42,74,0.04);
+}
 
 .grid{
     display:grid;
@@ -211,11 +233,12 @@ section{padding:40px 0; border-bottom:1px solid rgba(11,42,74,0.04);}
 
 @media(max-width:920px){
     .grid{
-    grid-template-columns:1fr;
-    gap:24px;
+        grid-template-columns:1fr;
+        gap:24px;
     }
 }
 
+/* ========== Cards ========== */
 .card{
     background:#fff;
     padding:28px;
@@ -223,9 +246,12 @@ section{padding:40px 0; border-bottom:1px solid rgba(11,42,74,0.04);}
     box-shadow:0 8px 24px rgba(11,42,74,0.04);
     border:1px solid rgba(11,42,74,0.03);
     margin-bottom:24px;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.card:hover{transform:translateY(-2px);}
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(11,42,74,0.1);
+}
 
 h2{
     margin:0 0 12px;
@@ -249,7 +275,7 @@ ul.features li{
     color:var(--navy);
 }
 
-/* aside */
+/* ========== Aside ========== */
 .aside .box{
     margin-bottom:24px;
     padding:24px;
@@ -258,6 +284,7 @@ ul.features li{
     border:1px solid rgba(11,42,74,0.03);
 }
 
+/* ========== Buttons ========== */
 .btn{
     display:inline-block;
     background:var(--green);
@@ -269,13 +296,19 @@ ul.features li{
     font-size:16px;
     border:none;
     cursor:pointer;
-    transition: all 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     text-align:center;
 }
-.btn:hover{background:#0a682e; transform:scale(1.02);}
-.btn:active{transform:scale(0.98);}
+.btn:hover{
+    background:#0a682e;
+    transform:scale(1.03);
+    box-shadow:0 8px 20px rgba(11,122,62,0.3);
+}
+.btn:active{
+    transform:scale(0.98);
+}
 
-/* Tags */
+/* ========== Tags ========== */
 .tag{
     display:inline-block;
     background:rgba(11,122,62,0.1);
@@ -287,7 +320,7 @@ ul.features li{
     margin-bottom:14px;
 }
 
-/* Forms */
+/* ========== Forms ========== */
 input, select, textarea{
     font-family:'Cairo', sans-serif;
     background:var(--light-gray);
@@ -297,6 +330,7 @@ input, select, textarea{
     font-size:15px;
     transition: all 0.2s;
     width:100%;
+    margin-bottom:12px;
 }
 input:focus, select:focus, textarea:focus{
     outline:none;
@@ -304,7 +338,50 @@ input:focus, select:focus, textarea:focus{
     background:#fff;
 }
 
-/* Modal - متجاوب كامل */
+/* ========== FAQ ========== */
+.faq-list details {
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(11,42,74,0.05);
+    padding-bottom: 8px;
+}
+
+.faq-list summary {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy);
+    cursor: pointer;
+    padding: 8px 0;
+    list-style: none;
+    position: relative;
+    padding-right: 28px;
+}
+
+.faq-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list summary::before {
+    content: "◀";
+    position: absolute;
+    right: 0;
+    top: 8px;
+    font-size: 14px;
+    color: var(--green);
+    transition: transform 0.2s;
+}
+
+.faq-list details[open] summary::before {
+    transform: rotate(-90deg);
+}
+
+.faq-list p {
+    margin: 8px 0 16px 0;
+    padding-right: 28px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* ========== Volunteer Modal ========== */
 #volunteerModal{
     display:none; 
     position:fixed; 
@@ -325,9 +402,9 @@ input:focus, select:focus, textarea:focus{
 
 @media (max-width: 600px) {
     #volunteerModal {
-    padding:24px;
-    width:92%;
-    max-height:85vh;
+        padding:24px;
+        width:92%;
+        max-height:85vh;
     }
     #volunteerModal h3 { font-size: 22px !important; }
 }
@@ -348,7 +425,7 @@ input:focus, select:focus, textarea:focus{
 #volunteerModal textarea {
     width: 100%;
     resize: vertical;
-    min-height: 120px;
+    min-height: 80px;
 }
 
 #volunteerOverlay{
@@ -363,7 +440,31 @@ input:focus, select:focus, textarea:focus{
     backdrop-filter:blur(3px);
 }
 
-/* Footer */
+/* ========== Toast ========== */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--navy);
+    color: #fff;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px 24px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ========== Footer ========== */
 footer{
     padding:28px 0; 
     text-align:center; 
@@ -372,19 +473,45 @@ footer{
     border-top:1px solid rgba(11,42,74,0.04);
 }
 
-/* Utilities */
-:target{scroll-margin-top:90px;}
-.note{color:var(--muted); font-size:14px; margin-top:8px;}
+footer a {
+    transition: color 0.3s;
+}
 
-/* تحسين اللمس للموبايل */
+footer a:hover {
+    color: var(--green) !important;
+}
+
+/* ========== Utilities ========== */
+:target{
+    scroll-margin-top:90px;
+}
+.note{
+    color:var(--muted); 
+    font-size:14px; 
+    margin-top:8px;
+}
+
+/* ========== Fade-in Animation ========== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== Mobile touch improvements ========== */
 @media (max-width: 820px) {
     .navlinks a, .btn, button {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .brand {
-    flex:1;
+        flex:1;
     }
 }
